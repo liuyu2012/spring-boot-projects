@@ -6,7 +6,6 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 import javax.sql.DataSource;
 
@@ -32,10 +31,6 @@ public class MybatisConfig {
         // 设置 Bean 扫描路径
         sessionFactoryBean.setTypeAliasesPackage("com.liuyu.mango.**.model");
 
-        // 路径匹配资源正则解析器
-        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        // 扫描映射文件
-        sessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:**/mapper/*.xml"));
         return sessionFactoryBean.getObject();
     }
 }
