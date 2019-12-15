@@ -35,7 +35,7 @@ public class MybatisConfig {
         // 路径匹配资源正则解析器
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         // 扫描映射文件
-        sessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:**/sqlmap/*.xml"));
+        sessionFactoryBean.setMapperLocations(resolver.getResources("classpath*:**/mapper/*.xml"));
         return sessionFactoryBean.getObject();
     }
 }
