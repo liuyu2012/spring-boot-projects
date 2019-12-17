@@ -1,11 +1,12 @@
-package com.liuyu.mango.dao;
+package com.liuyu.mango.mapper;
 
 import com.liuyu.mango.model.SysUser;
+import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
-@Component
+@Mapper
 public interface SysUserMapper {
     int deleteByPrimaryKey(Long id);
 

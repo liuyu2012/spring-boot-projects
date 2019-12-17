@@ -1,8 +1,9 @@
 package com.liuyu.mango.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SysRole {
+public class SysRole implements Serializable {
     private Long id;
 
     private String name;

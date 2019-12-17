@@ -1,8 +1,9 @@
 package com.liuyu.mango.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SysDict {
+public class SysDict implements Serializable {
     private Long id;
 
     private String value;

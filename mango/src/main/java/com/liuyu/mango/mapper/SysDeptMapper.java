@@ -1,7 +1,9 @@
-package com.liuyu.mango.dao;
+package com.liuyu.mango.mapper;
 
 import com.liuyu.mango.model.SysDept;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface SysDeptMapper {
     int deleteByPrimaryKey(Long id);
 

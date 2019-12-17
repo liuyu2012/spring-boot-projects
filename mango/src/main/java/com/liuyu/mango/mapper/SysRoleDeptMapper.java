@@ -1,7 +1,9 @@
-package com.liuyu.mango.dao;
+package com.liuyu.mango.mapper;
 
 import com.liuyu.mango.model.SysRoleDept;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface SysRoleDeptMapper {
     int deleteByPrimaryKey(Long id);
 

@@ -1,6 +1,6 @@
 package com.liuyu.mango.service.impl;
 
-import com.liuyu.mango.dao.SysUserMapper;
+import com.liuyu.mango.mapper.SysUserMapper;
 import com.liuyu.mango.model.SysUser;
 import com.liuyu.mango.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
  * @modifiedBy：
  * @version: 1.0
  */
-@Service
+@Service("sysUserService")
 public class SysUserServiceImpl implements SysUserService {
 
 

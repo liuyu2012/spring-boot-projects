@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.liuyu.mango.dao.SysRoleMenuMapper" >
-  <resultMap id="BaseResultMap" type="com.liuyu.mango.model.SysRoleMenu" >
+<mapper namespace="com.liuyu.mango.mapper.SysRoleDeptMapper" >
+  <resultMap id="BaseResultMap" type="com.liuyu.mango.model.SysRoleDept" >
     <id column="id" property="id" jdbcType="BIGINT" />
     <result column="role_id" property="roleId" jdbcType="BIGINT" />
-    <result column="menu_id" property="menuId" jdbcType="BIGINT" />
+    <result column="dept_id" property="deptId" jdbcType="BIGINT" />
     <result column="create_by" property="createBy" jdbcType="VARCHAR" />
     <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
     <result column="last_update_by" property="lastUpdateBy" jdbcType="VARCHAR" />
     <result column="last_update_time" property="lastUpdateTime" jdbcType="TIMESTAMP" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, role_id, menu_id, create_by, create_time, last_update_by, last_update_time
+    id, role_id, dept_id, create_by, create_time, last_update_by, last_update_time
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
     select 
     <include refid="Base_Column_List" />
-    from sys_role_menu
+    from sys_role_dept
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
-    delete from sys_role_menu
+    delete from sys_role_dept
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.liuyu.mango.model.SysRoleMenu" >
-    insert into sys_role_menu (id, role_id, menu_id, 
+  <insert id="insert" parameterType="com.liuyu.mango.model.SysRoleDept" >
+    insert into sys_role_dept (id, role_id, dept_id, 
       create_by, create_time, last_update_by, 
       last_update_time)
-    values (#{id,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}, #{menuId,jdbcType=BIGINT}, 
+    values (#{id,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}, #{deptId,jdbcType=BIGINT}, 
       #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=VARCHAR}, 
       #{lastUpdateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.liuyu.mango.model.SysRoleMenu" >
-    insert into sys_role_menu
+  <insert id="insertSelective" parameterType="com.liuyu.mango.model.SysRoleDept" >
+    insert into sys_role_dept
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -40,8 +40,8 @@
       <if test="roleId != null" >
         role_id,
       </if>
-      <if test="menuId != null" >
-        menu_id,
+      <if test="deptId != null" >
+        dept_id,
       </if>
       <if test="createBy != null" >
         create_by,
@@ -63,8 +63,8 @@
       <if test="roleId != null" >
         #{roleId,jdbcType=BIGINT},
       </if>
-      <if test="menuId != null" >
-        #{menuId,jdbcType=BIGINT},
+      <if test="deptId != null" >
+        #{deptId,jdbcType=BIGINT},
       </if>
       <if test="createBy != null" >
         #{createBy,jdbcType=VARCHAR},
@@ -80,14 +80,14 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.liuyu.mango.model.SysRoleMenu" >
-    update sys_role_menu
+  <update id="updateByPrimaryKeySelective" parameterType="com.liuyu.mango.model.SysRoleDept" >
+    update sys_role_dept
     <set >
       <if test="roleId != null" >
         role_id = #{roleId,jdbcType=BIGINT},
       </if>
-      <if test="menuId != null" >
-        menu_id = #{menuId,jdbcType=BIGINT},
+      <if test="deptId != null" >
+        dept_id = #{deptId,jdbcType=BIGINT},
       </if>
       <if test="createBy != null" >
         create_by = #{createBy,jdbcType=VARCHAR},
@@ -104,10 +104,10 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.liuyu.mango.model.SysRoleMenu" >
-    update sys_role_menu
+  <update id="updateByPrimaryKey" parameterType="com.liuyu.mango.model.SysRoleDept" >
+    update sys_role_dept
     set role_id = #{roleId,jdbcType=BIGINT},
-      menu_id = #{menuId,jdbcType=BIGINT},
+      dept_id = #{deptId,jdbcType=BIGINT},
       create_by = #{createBy,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       last_update_by = #{lastUpdateBy,jdbcType=VARCHAR},

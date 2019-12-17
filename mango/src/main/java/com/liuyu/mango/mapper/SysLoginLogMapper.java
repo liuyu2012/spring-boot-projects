@@ -1,7 +1,9 @@
-package com.liuyu.mango.dao;
+package com.liuyu.mango.mapper;
 
 import com.liuyu.mango.model.SysLoginLog;
+import org.apache.ibatis.annotations.Mapper;
 
+@Mapper
 public interface SysLoginLogMapper {
     int deleteByPrimaryKey(Long id);
 
