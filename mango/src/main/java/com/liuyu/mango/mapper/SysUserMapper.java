@@ -2,7 +2,6 @@ package com.liuyu.mango.mapper;
 
 import com.liuyu.mango.model.SysUser;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 
