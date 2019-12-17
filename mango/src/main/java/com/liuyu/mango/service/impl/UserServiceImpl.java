@@ -3,9 +3,9 @@ package com.liuyu.mango.service.impl;
 import com.liuyu.mango.mapper.UserMapper;
 import com.liuyu.mango.model.User;
 import com.liuyu.mango.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -19,7 +19,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-    @Autowired
+    @Resource
     private UserMapper userMapper;
 
     @Override
