@@ -2,11 +2,11 @@ package com.liuyu.mango.controller;
 
 import com.liuyu.mango.model.User;
 import com.liuyu.mango.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,11 +21,12 @@ import java.util.List;
 public class UserController {
 
 
-    @Resource
+    @Autowired
     private UserService userService;
 
     @GetMapping("/findAll")
     public List<User> findAll() {
         return userService.findAll();
     }
+
 }
