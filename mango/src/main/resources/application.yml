@@ -5,14 +5,13 @@ spring:
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/mango?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
+    #druid 监控
     druid:
-      driver-class-name: com.mysql.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/mango?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=true
-      username: root
-      password: root
-      filters: stat,wall,log4j,config
+      filters: stat,wall,slf4j,config,log4j
       max-active: 100
       initial-size: 1
       max-wait: 60000
@@ -26,6 +25,14 @@ spring:
       pool-prepared-statements: true
       max-open-prepared-statements: 50
       max-pool-prepared-statement-per-connection-size: 20
+      stat-view-servlet:
+        enabled: true
+        url-pattern: /druid/*
+        login-username: admin
+        login-password: admin
+        allow: 127.0.0.1
+        deny: 192.168.1.1
+
 
 #mybatis的相关配置
 mybatis:
