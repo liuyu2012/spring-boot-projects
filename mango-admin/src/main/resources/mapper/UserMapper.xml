@@ -39,6 +39,14 @@
         <include refid="Base_Column_List"/>
         from sys_user
     </select>
+    <!--    根据用户名称查找有用户-->
+    <select id="findByName" resultType="com.liuyu.mango.admin.model.User">
+
+        select
+        <include refid="Base_Column_List"/>
+        from sys_user
+        where name = #{name,jdbcType=VARCHAR}
+    </select>
 
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_user

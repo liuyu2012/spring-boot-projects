@@ -36,6 +36,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User findByName(String name) {
+        return userMapper.findByName(name);
+    }
+
+    @Override
     public int save(User record) {
         return userMapper.insert(record);
     }

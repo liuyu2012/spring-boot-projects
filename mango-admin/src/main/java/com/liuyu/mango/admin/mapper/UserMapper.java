@@ -2,6 +2,7 @@ package com.liuyu.mango.admin.mapper;
 
 import com.liuyu.mango.admin.model.User;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -70,4 +71,11 @@ public interface UserMapper {
      * @return 分页查询结果
      */
     List<User> findPage();
+
+    /**
+     * 根据用户名查找用户信息
+     * @param name 名字
+     * @return 用户信息
+     */
+    User findByName(@Param(value = "name") String name);
 }

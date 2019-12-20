@@ -33,4 +33,19 @@ public class UserController {
     public HttpResult findPage(@RequestBody PageRequest pageRequest) {
         return HttpResult.ok(userService.findPage(pageRequest));
     }
+
+    @PostMapping("/save")
+    public HttpResult save(@RequestBody User user) {
+        return HttpResult.ok(userService.save(user));
+    }
+
+    @PostMapping("/delete")
+    public HttpResult delete(@RequestBody List<User> users) {
+        return HttpResult.ok(userService.delete(users));
+    }
+
+    @GetMapping("/findByName")
+    public HttpResult findByName(@RequestParam String name) {
+        return HttpResult.ok(userService.findByName(name));
+    }
 }

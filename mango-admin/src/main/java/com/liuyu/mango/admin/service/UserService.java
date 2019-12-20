@@ -27,4 +27,11 @@ public interface UserService extends CurdService<User> {
      * @return 查询结果
      */
     List<User> findPage();
+
+    /**
+     * 根据姓名查找用户信息
+     * @param name 姓名
+     * @return 用户信息
+     */
+    User findByName(String name);
 }
