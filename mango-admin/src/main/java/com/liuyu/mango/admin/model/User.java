@@ -16,6 +16,10 @@ public class User implements Serializable {
 
     private String nickName;
 
+    private String deptName;
+
+    private String roleNames;
+
     private String avatar;
 
     private String password;
@@ -182,8 +186,28 @@ public class User implements Serializable {
         return this;
     }
 
+    public String getDeptName() {
+        return deptName;
+    }
+
+    public User setDeptName(String deptName) {
+        this.deptName = deptName;
+        return this;
+    }
+
+    public String getRoleNames() {
+        return roleNames;
+    }
+
+    public User setRoleNames(String roleNames) {
+        this.roleNames = roleNames;
+        return this;
+    }
+
     @Override
     public String toString() {
         return ReflectionToStringBuilder.toString(this, ToStringStyle.SHORT_PREFIX_STYLE);
     }
+
+
 }

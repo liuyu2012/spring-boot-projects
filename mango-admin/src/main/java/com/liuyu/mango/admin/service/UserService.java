@@ -1,8 +1,10 @@
 package com.liuyu.mango.admin.service;
 
 import com.liuyu.mango.admin.model.User;
+import com.liuyu.mango.core.page.PageRequest;
 import com.liuyu.mango.core.service.CurdService;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -34,4 +36,11 @@ public interface UserService extends CurdService<User> {
      * @return 用户信息
      */
     User findByName(String name);
+
+    /**
+     * 生成用户信息
+     * @param pageRequest 要导出的分页查询参数
+     * @return 生成文件
+     */
+    File createUserExcelFile(PageRequest pageRequest);
 }
