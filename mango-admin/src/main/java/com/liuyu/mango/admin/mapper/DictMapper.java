@@ -2,6 +2,9 @@ package com.liuyu.mango.admin.mapper;
 
 import com.liuyu.mango.admin.model.Dict;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author Administrator
@@ -55,4 +58,26 @@ public interface DictMapper {
      * @return 结果
      */
     int updateByPrimaryKey(Dict record);
+
+    /**
+     * 分页查询
+     * @return 分页列表
+     */
+    List<Dict> findPage();
+
+    /**
+     * 根据标签名称查询
+     *
+     * @param label 标签
+     * @return 结果
+     */
+    List<Dict> findByLabel(@Param(value = "label") String label);
+
+    /**
+     *  根据标签名称分页查询
+     * @param label 标签
+     * @return 分页结果
+     */
+    List<Dict> findPageByLabel(@Param(value = "label") String label);
+
 }
