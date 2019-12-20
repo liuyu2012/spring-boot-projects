@@ -11,21 +11,21 @@ spring:
     password: root
     #druid 监控
     druid:
-#      配置监控统计的拦截的 filters,去掉后界面 SQL无法统计，wall用于防火墙
+      #      配置监控统计的拦截的 filters,去掉后界面 SQL无法统计，wall用于防火墙
       filters: stat,wall,config,log4j
-#      最大连接数
+      #      最大连接数
       max-active: 100
-#      初始化连接数
+      #      初始化连接数
       initial-size: 1
-#      最大等待时间，单位是毫秒
+      #      最大等待时间，单位是毫秒
       max-wait: 60000
-#      最小连接
+      #      最小连接
       min-idle: 1
-#      间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+      #      间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
       time-between-eviction-runs-millis: 60000
-#      一个连接在连接池中最小的生存时间，单位是毫秒
+      #      一个连接在连接池中最小的生存时间，单位是毫秒
       min-evictable-idle-time-millis: 300000
-#      有效查询
+      #      有效查询
       validation-query: select 'x'
       test-while-idle: true
       test-on-borrow: false
@@ -50,3 +50,10 @@ mybatis:
   #开启驼峰命名
   configuration:
     map-underscore-to-camel-case: true
+
+#  分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql

@@ -1,1 +1,6 @@
+com\liuyu\mango\core\http\HtpStatus.class
+com\liuyu\mango\core\page\PageResult.class
 com\liuyu\mango\core\page\PageRequest.class
+com\liuyu\mango\core\http\HttpResult.class
+com\liuyu\mango\core\page\MybatisPageHelper.class
+com\liuyu\mango\core\service\CurdService.class

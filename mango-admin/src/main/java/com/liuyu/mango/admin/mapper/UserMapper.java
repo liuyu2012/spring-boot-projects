@@ -64,4 +64,10 @@ public interface UserMapper {
      * @return 查询所有用户信息
      */
     List<User> findAll();
+
+    /**
+     * 分页查询
+     * @return 分页查询结果
+     */
+    List<User> findPage();
 }

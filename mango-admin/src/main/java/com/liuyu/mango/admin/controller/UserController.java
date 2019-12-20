@@ -2,11 +2,11 @@ package com.liuyu.mango.admin.controller;
 
 import com.liuyu.mango.admin.model.User;
 import com.liuyu.mango.admin.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.liuyu.mango.core.http.HttpResult;
+import com.liuyu.mango.core.page.PageRequest;
+import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,7 +21,7 @@ import java.util.List;
 public class UserController {
 
 
-    @Autowired
+    @Resource
     private UserService userService;
 
     @GetMapping("/findAll")
@@ -29,4 +29,8 @@ public class UserController {
         return userService.findAll();
     }
 
+    @PostMapping("/findPage")
+    public HttpResult findPage(@RequestBody PageRequest pageRequest) {
+        return HttpResult.ok(userService.findPage(pageRequest));
+    }
 }
