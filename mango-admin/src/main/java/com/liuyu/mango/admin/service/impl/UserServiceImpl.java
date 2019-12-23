@@ -17,7 +17,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author： yu Liu
@@ -81,6 +83,20 @@ public class UserServiceImpl implements UserService {
     public File createUserExcelFile(PageRequest pageRequest) {
         PageResult pageResult = findPage(pageRequest);
         return createUserExcelFile(pageResult.getContent());
+    }
+
+    /**
+     * 根据用户名称查找所有权限
+     *
+     * @param name 用户名
+     * @return 权限列表
+     */
+    @Override
+    public Set<String> findPermissions(String name) {
+
+        Set<String> perms = new HashSet<>();
+
+        return null;
     }
 
     private static File createUserExcelFile(List<?> records) {

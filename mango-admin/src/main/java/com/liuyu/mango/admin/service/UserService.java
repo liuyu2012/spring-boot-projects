@@ -6,6 +6,7 @@ import com.liuyu.mango.core.service.CurdService;
 
 import java.io.File;
 import java.util.List;
+import java.util.Set;
 
 /**
  * @author： yu Liu
@@ -43,4 +44,11 @@ public interface UserService extends CurdService<User> {
      * @return 生成文件
      */
     File createUserExcelFile(PageRequest pageRequest);
+
+    /**
+     * 根据用户名称查找所有权限
+     * @param name 用户名
+     * @return 权限列表
+     */
+    Set<String> findPermissions(String name);
 }

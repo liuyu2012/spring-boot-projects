@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -14,9 +15,13 @@ public class Menu implements Serializable {
 
     private String name;
 
+    private Integer level;
+
     private Long parentId;
 
     private String url;
+
+    private String parentName;
 
     private String perms;
 
@@ -36,6 +41,7 @@ public class Menu implements Serializable {
 
     private Byte delFlag;
 
+    private List<Menu> children;
     public Menu() {
     }
 
@@ -157,6 +163,33 @@ public class Menu implements Serializable {
 
     public Menu setDelFlag(Byte delFlag) {
         this.delFlag = delFlag;
+        return this;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public Menu setLevel(Integer level) {
+        this.level = level;
+        return this;
+    }
+
+    public String getParentName() {
+        return parentName;
+    }
+
+    public Menu setParentName(String parentName) {
+        this.parentName = parentName;
+        return this;
+    }
+
+    public List<Menu> getChildren() {
+        return children;
+    }
+
+    public Menu setChildren(List<Menu> children) {
+        this.children = children;
         return this;
     }
 
