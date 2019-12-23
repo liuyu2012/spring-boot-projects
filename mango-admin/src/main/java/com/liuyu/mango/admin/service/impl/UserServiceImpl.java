@@ -4,6 +4,8 @@ import com.google.common.collect.Lists;
 import com.liuyu.mango.admin.mapper.UserMapper;
 import com.liuyu.mango.admin.model.User;
 import com.liuyu.mango.admin.service.UserService;
+import com.liuyu.mango.common.utils.DateTimeUtils;
+import com.liuyu.mango.common.utils.PoiUtils;
 import com.liuyu.mango.core.page.MybatisPageHelper;
 import com.liuyu.mango.core.page.PageRequest;
 import com.liuyu.mango.core.page.PageResult;
@@ -81,7 +83,7 @@ public class UserServiceImpl implements UserService {
         return createUserExcelFile(pageResult.getContent());
     }
 
-    public static File createUserExcelFile(List<?> records) {
+    private static File createUserExcelFile(List<?> records) {
         if (records == null) {
             records = Lists.newArrayList();
         }
@@ -132,12 +134,11 @@ public class UserServiceImpl implements UserService {
             row.getCell(++columnIndex).setCellValue(user.getStatus());
             row.getCell(++columnIndex).setCellValue(user.getAvatar());
             row.getCell(++columnIndex).setCellValue(user.getCreateBy());
-            row.getCell(++columnIndex).setCellValue(user.getId());
-            row.getCell(++columnIndex).setCellValue(user.getId());
-            row.getCell(++columnIndex).setCellValue(user.getId());
-            row.getCell(++columnIndex).setCellValue(user.getId());
+            row.getCell(++columnIndex).setCellValue(DateTimeUtils.getDateTime(user.getCreateTime()));
+            row.getCell(++columnIndex).setCellValue(user.getLastUpdateBy());
+            row.getCell(++columnIndex).setCellValue(DateTimeUtils.getDateTime(user.getLastUpdateTime()));
         }
 
-        return null;
+        return PoiUtils.createExcelFile(workbook, "download_user");
     }
 }

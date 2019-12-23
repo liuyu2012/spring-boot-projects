@@ -2,11 +2,14 @@ package com.liuyu.mango.admin.controller;
 
 import com.liuyu.mango.admin.model.User;
 import com.liuyu.mango.admin.service.UserService;
+import com.liuyu.mango.common.utils.FileUtils;
 import com.liuyu.mango.core.http.HttpResult;
 import com.liuyu.mango.core.page.PageRequest;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.util.List;
 
 /**
@@ -47,5 +50,13 @@ public class UserController {
     @GetMapping("/findByName")
     public HttpResult findByName(@RequestParam String name) {
         return HttpResult.ok(userService.findByName(name));
+    }
+
+    @PostMapping("/exportExcelUser")
+    public void exportExcelUser(@RequestBody PageRequest pageRequest, HttpServletResponse response) {
+        // 生成文件
+        File file = userService.createUserExcelFile(pageRequest);
+        // 下载文件
+        FileUtils.downloadFile(response, file, file.getName());
     }
 }
