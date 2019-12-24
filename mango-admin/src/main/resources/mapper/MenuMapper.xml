@@ -26,6 +26,18 @@
     from sys_menu
     where id = #{id,jdbcType=BIGINT}
   </select>
+<!--  查找所有菜单信息-->
+    <select id="findAll" resultType="com.liuyu.mango.admin.model.Menu">
+      select
+      <include refid="Base_Column_List"/>
+      from sys_menu
+    </select>
+  <select id="findByUserName" resultType="com.liuyu.mango.admin.model.Menu">
+    select
+    <include refid="Base_Column_List" />
+    from sys_menu
+    where name = #{username,jdbcType=BIGINT}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
     delete from sys_menu
     where id = #{id,jdbcType=BIGINT}

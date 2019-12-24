@@ -2,6 +2,9 @@ package com.liuyu.mango.admin.mapper;
 
 import com.liuyu.mango.admin.model.Menu;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 /**
  * @author Administrator
@@ -55,4 +58,19 @@ public interface MenuMapper {
      * @return 结果
      */
     int updateByPrimaryKey(Menu record);
+
+    /**
+     * 查找所有菜单信息
+     *
+     * @return 所有菜单信息
+     */
+    List<Menu> findAll();
+
+    /**
+     * 根据用户名查找菜单列表
+     *
+     * @param username 用户名
+     * @return 菜单列表
+     */
+    List<Menu> findByUserName(@Param("username") String username);
 }
