@@ -24,39 +24,50 @@ import java.util.List;
 public class UserController {
 
 
-    @Resource
-    private UserService userService;
+	@Resource
+	private UserService userService;
 
-    @GetMapping("/findAll")
-    public List<User> findAll() {
-        return userService.findAll();
-    }
+	@GetMapping("/findAll")
+	public List<User> findAll() {
+		return userService.findAll();
+	}
 
-    @PostMapping("/findPage")
-    public HttpResult findPage(@RequestBody PageRequest pageRequest) {
-        return HttpResult.ok(userService.findPage(pageRequest));
-    }
+	@PostMapping("/findPage")
+	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
+		return HttpResult.ok(userService.findPage(pageRequest));
+	}
 
-    @PostMapping("/save")
-    public HttpResult save(@RequestBody User user) {
-        return HttpResult.ok(userService.save(user));
-    }
+	@PostMapping("/save")
+	public HttpResult save(@RequestBody User user) {
+		return HttpResult.ok(userService.save(user));
+	}
 
-    @PostMapping("/delete")
-    public HttpResult delete(@RequestBody List<User> users) {
-        return HttpResult.ok(userService.delete(users));
-    }
+	@PostMapping("/delete")
+	public HttpResult delete(@RequestBody List<User> users) {
+		return HttpResult.ok(userService.delete(users));
+	}
 
-    @GetMapping("/findByName")
-    public HttpResult findByName(@RequestParam String name) {
-        return HttpResult.ok(userService.findByName(name));
-    }
+	@GetMapping("/findByName")
+	public HttpResult findByName(@RequestParam String name) {
+		return HttpResult.ok(userService.findByName(name));
+	}
 
-    @PostMapping("/exportExcelUser")
-    public void exportExcelUser(@RequestBody PageRequest pageRequest, HttpServletResponse response) {
-        // 生成文件
-        File file = userService.createUserExcelFile(pageRequest);
-        // 下载文件
-        FileUtils.downloadFile(response, file, file.getName());
-    }
+	@GetMapping("/findPermissions")
+	public HttpResult findPermissions(@RequestParam String name) {
+		return HttpResult.ok(userService.findPermissions(name));
+	}
+
+	@GetMapping("/findUserRoles")
+	public HttpResult findUserRoles(Long userId) {
+		return HttpResult.ok(userService.findUserRoles(userId));
+	}
+
+
+	@PostMapping("/exportExcelUser")
+	public void exportExcelUser(@RequestBody PageRequest pageRequest, HttpServletResponse response) {
+		// 生成文件
+		File file = userService.createUserExcelFile(pageRequest);
+		// 下载文件
+		FileUtils.downloadFile(response, file, file.getName());
+	}
 }

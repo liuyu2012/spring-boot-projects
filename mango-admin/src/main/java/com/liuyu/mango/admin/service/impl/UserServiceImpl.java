@@ -2,7 +2,9 @@ package com.liuyu.mango.admin.service.impl;
 
 import com.google.common.collect.Lists;
 import com.liuyu.mango.admin.mapper.UserMapper;
+import com.liuyu.mango.admin.mapper.UserRoleMapper;
 import com.liuyu.mango.admin.model.User;
+import com.liuyu.mango.admin.model.UserRole;
 import com.liuyu.mango.admin.service.UserService;
 import com.liuyu.mango.common.utils.DateTimeUtils;
 import com.liuyu.mango.common.utils.PoiUtils;
@@ -32,8 +34,11 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
 
+
     @Resource
     private UserMapper userMapper;
+    @Resource
+    private UserRoleMapper userRoleMapper;
 
     @Override
     public List<User> findAll() {
@@ -97,6 +102,17 @@ public class UserServiceImpl implements UserService {
         Set<String> perms = new HashSet<>();
 
         return null;
+    }
+
+    /**
+     * 查抄用户角色
+     *
+     * @param userId 用户Id
+     * @return 用户角色信息
+     */
+    @Override
+    public List<UserRole> findUserRoles(Long userId) {
+        return userRoleMapper.findUserRoles(userId);
     }
 
     private static File createUserExcelFile(List<?> records) {
