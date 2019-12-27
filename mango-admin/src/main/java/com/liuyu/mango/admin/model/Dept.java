@@ -5,6 +5,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author Administrator
@@ -18,6 +19,8 @@ public class Dept implements Serializable {
 
     private Integer orderNum;
 
+    private Integer level;
+
     private String createBy;
 
     private Date createTime;
@@ -27,6 +30,8 @@ public class Dept implements Serializable {
     private Date lastUpdateTime;
 
     private Byte delFlag;
+
+    private List<Dept> children;
 
 
     public Dept() {
@@ -114,6 +119,24 @@ public class Dept implements Serializable {
 
     public Dept setDelFlag(Byte delFlag) {
         this.delFlag = delFlag;
+        return this;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public Dept setLevel(Integer level) {
+        this.level = level;
+        return this;
+    }
+
+    public List<Dept> getChildren() {
+        return children;
+    }
+
+    public Dept setChildren(List<Dept> children) {
+        this.children = children;
         return this;
     }
 

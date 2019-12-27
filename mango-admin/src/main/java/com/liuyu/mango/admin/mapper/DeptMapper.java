@@ -3,6 +3,8 @@ package com.liuyu.mango.admin.mapper;
 import com.liuyu.mango.admin.model.Dept;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @author Administrator
  */
@@ -55,4 +57,10 @@ public interface DeptMapper {
      * @return 结果
      */
     int updateByPrimaryKey(Dept record);
+
+    /**
+     * 查找所有
+     * @return 机构集合
+     */
+	List<Dept> findAll();
 }
