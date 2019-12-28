@@ -25,25 +25,49 @@ public class DictController {
 	private DictService dictService;
 
 
+	/**
+	 * 保存字典
+	 *
+	 * @param dict 记录
+	 * @return 结果
+	 */
 	@PreAuthorize("hasAuthority('sys:dict:add') AND hasAuthority('sys:dict:edit')")
 	@PostMapping("/save")
 	public HttpResult save(@RequestBody Dict dict) {
 		return HttpResult.ok(dictService.save(dict));
 	}
 
+	/**
+	 * 删除字典
+	 *
+	 * @param records 记录集合
+	 * @return 结果
+	 */
 	@PreAuthorize("hasAuthority('sys:dict:delete')")
 	@PostMapping("/delete")
 	public HttpResult delete(@RequestBody List<Dict> records) {
 		return HttpResult.ok(dictService.delete(records));
 	}
 
-    @PreAuthorize("hasAuthority('sys:dict:view')")
+	/**
+	 * 分页查询
+	 *
+	 * @param pageRequest 分页请求
+	 * @return 结果
+	 */
+	@PreAuthorize("hasAuthority('sys:dict:view')")
 	@PostMapping("/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(dictService.findPage(pageRequest));
 	}
 
-    @PreAuthorize("hasAuthority('sys:dict:view')")
+	/**
+	 * 根据标签查询
+	 *
+	 * @param label 标签
+	 * @return 结果
+	 */
+	@PreAuthorize("hasAuthority('sys:dict:view')")
 	@GetMapping("/findByLabel")
 	public HttpResult findByLabel(@RequestParam String label) {
 		return HttpResult.ok(dictService.findByLabel(label));
