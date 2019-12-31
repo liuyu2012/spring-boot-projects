@@ -1,5 +1,5 @@
 server:
-  port: 8000
+  port: 8001
 
 spring:
   datasource:
@@ -40,6 +40,16 @@ spring:
         login-password: admin
         allow: 127.0.0.1
         deny: 192.168.1.1
+  couchbase:
+    bootstrap-hosts:
+
+#      服务监控
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8000"
+
+
 
 
 #mybatis的相关配置
@@ -57,3 +67,10 @@ pagehelper:
   reasonable: true
   support-methods-arguments: true
   params: count=countSql
+
+#  服务监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

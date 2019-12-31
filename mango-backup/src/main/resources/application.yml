@@ -1,8 +1,14 @@
 server:
-  port: 8001
+  port: 8002
 spring:
   application:
     name: mango-backup
+#    服务监控
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8000"
+
 
 mango:
   backup:
@@ -11,3 +17,11 @@ mango:
       userName: root
       password: root
       database: mango
+
+
+# 服务监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
